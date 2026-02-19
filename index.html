@@ -3,71 +3,150 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JDJ AI Studio — Preview</title>
+    <title>JDJ AI Studio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-grid"></div>
-    <header class="nav">
-      <div class="brand">JDJ AI Studio</div>
-      <a href="#builder" class="btn ghost">Launch Builder</a>
-    </header>
-
-    <main>
-      <section class="hero">
-        <p class="eyebrow">Create Without Limits</p>
-        <h1>Generate pro videos in any language.</h1>
-        <p class="lead">
-          A premium AI video workspace inspired by arena-style interfaces, with templates,
-          timeline editing, multilingual voice, and long-form workflows.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="#builder">Start Creating Free</a>
-          <a class="btn" href="#templates">Explore Templates</a>
-        </div>
-        <div class="contact">jameslord4880@gmail.com · 07066961687</div>
-      </section>
-
-      <section class="panel" id="builder">
-        <h2>Video Builder Preview</h2>
-        <div class="builder-grid">
-          <div class="card">
-            <h3>Prompt</h3>
-            <textarea rows="5" placeholder="Describe your video idea, language, style, and duration..."></textarea>
-            <button class="btn primary full">Generate Video</button>
-          </div>
-          <div class="card">
-            <h3>Settings</h3>
-            <ul>
-              <li>Language: Auto / English / French / Hindi / Arabic / Yoruba</li>
-              <li>Duration: 30s to 8h</li>
-              <li>Style: Cinematic / Explainer / Ad / Documentary</li>
-              <li>Output: 1080p / 4K · MP4/MOV</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Render Queue</h3>
-            <div class="queue-item">
-              <span>AI Thinking...</span>
-              <span>42%</span>
-            </div>
-            <div class="bar"><span></span></div>
-            <small>Chunked rendering preview for long-form exports.</small>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="logo-wrap">
+          <div class="logo-mark">JDJ</div>
+          <div>
+            <h1>JDJ AI Studio</h1>
+            <p>Create Without Limits</p>
           </div>
         </div>
-      </section>
 
-      <section class="panel" id="templates">
-        <h2>Template Library</h2>
-        <div class="template-grid">
-          <article class="template">YouTube Automation</article>
-          <article class="template">Business Commercial</article>
-          <article class="template">Educational Lesson</article>
-          <article class="template">TikTok Shorts</article>
-          <article class="template">Podcast Clip</article>
-          <article class="template">Real Estate Promo</article>
+        <nav>
+          <button class="nav-item active" data-tab="dashboard">Dashboard</button>
+          <button class="nav-item" data-tab="templates">Templates</button>
+          <button class="nav-item" data-tab="avatars">Avatars</button>
+          <button class="nav-item" data-tab="projects">Projects</button>
+          <button class="nav-item" data-tab="settings">Settings</button>
+        </nav>
+
+        <div class="support-box">
+          <p>Support</p>
+          <small>jameslord4880@gmail.com</small>
+          <small>07066961687</small>
         </div>
-      </section>
-    </main>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <h2>Studio Workspace</h2>
+            <p>HeyGen-style creation flow with templates + scene timeline.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="btn ghost" id="loginBtn">Login</button>
+            <button class="btn primary">Create Video</button>
+          </div>
+        </header>
+
+        <section class="panel" id="dashboard">
+          <div class="grid-2">
+            <article class="card">
+              <h3>Start with Prompt</h3>
+              <textarea id="promptBox" rows="4" placeholder="Create a professional product launch video in French with a warm voice and animated captions."></textarea>
+              <div class="inline-fields">
+                <select>
+                  <option>Language: Auto</option>
+                  <option>English</option>
+                  <option>French</option>
+                  <option>Arabic</option>
+                  <option>Yoruba</option>
+                </select>
+                <select>
+                  <option>Duration: up to 8 hours</option>
+                  <option>15 min</option>
+                  <option>1 hour</option>
+                  <option>4 hours</option>
+                </select>
+              </div>
+              <button class="btn primary full" id="generateBtn">Generate</button>
+            </article>
+
+            <article class="card">
+              <h3>Timeline & Scene Builder</h3>
+              <ul class="timeline">
+                <li>Intro Scene <span>00:00 - 00:20</span></li>
+                <li>AI Avatar Segment <span>00:20 - 01:30</span></li>
+                <li>B-roll Product Sequence <span>01:30 - 02:30</span></li>
+                <li>Call to Action <span>02:30 - 02:45</span></li>
+              </ul>
+              <button class="btn">+ Add Scene</button>
+            </article>
+          </div>
+
+          <div class="grid-3 stats">
+            <article class="card mini"><h4>Render Queue</h4><p id="renderStatus">Waiting for prompt...</p></article>
+            <article class="card mini"><h4>Voice</h4><p>Ultra natural AI voices + accent selection.</p></article>
+            <article class="card mini"><h4>Export</h4><p>MP4/MOV · 1080p/4K · No watermark.</p></article>
+          </div>
+        </section>
+
+        <section class="panel hidden" id="templates">
+          <h3>Template Marketplace</h3>
+          <p class="sub">Pick a template to pre-fill script, scenes, and style.</p>
+          <div class="template-grid" id="templateGrid">
+            <button class="template selected">YouTube Automation</button>
+            <button class="template">Instagram Reels</button>
+            <button class="template">Business Commercial</button>
+            <button class="template">Educational Lesson</button>
+            <button class="template">Podcast Clips</button>
+            <button class="template">Real Estate Promo</button>
+            <button class="template">Documentary</button>
+            <button class="template">TikTok Shorts</button>
+          </div>
+        </section>
+
+        <section class="panel hidden" id="avatars">
+          <h3>Avatar Studio</h3>
+          <div class="grid-3">
+            <article class="card mini"><h4>Presenter 01</h4><p>Professional formal tone.</p></article>
+            <article class="card mini"><h4>Presenter 02</h4><p>Friendly social style.</p></article>
+            <article class="card mini"><h4>Custom Avatar</h4><p>Upload face + train profile.</p></article>
+          </div>
+        </section>
+
+        <section class="panel hidden" id="projects">
+          <h3>Recent Projects</h3>
+          <ul class="projects-list">
+            <li>Product Launch EN — Rendering 42%</li>
+            <li>Training Video FR — Completed</li>
+            <li>Motivational Video AR — Completed</li>
+          </ul>
+        </section>
+
+        <section class="panel hidden" id="settings">
+          <h3>Brand Kit & Settings</h3>
+          <div class="grid-2">
+            <article class="card">
+              <h4>Logo & Colors</h4>
+              <p>Upload logo, set brand fonts, and apply custom color packs.</p>
+            </article>
+            <article class="card">
+              <h4>Account</h4>
+              <p>Connect email alerts and phone support line for notifications.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="loginModal">
+      <form method="dialog" class="login-card">
+        <h3>Login to JDJ AI Studio</h3>
+        <label>Email<input type="email" placeholder="you@example.com" required /></label>
+        <label>Password<input type="password" placeholder="••••••••" required /></label>
+        <div class="inline-actions">
+          <button value="cancel" class="btn">Cancel</button>
+          <button value="default" class="btn primary">Login</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
   </body>
 </html>
